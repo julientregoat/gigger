@@ -3,14 +3,25 @@ document.getElementById('current-page').innerHTML = STARTPAGE;
 document.getElementById('login-btn').addEventListener('click', function(event){
   event.preventDefault();
   let input = document.getElementById('username-input-login')
-
-  let replaceThis = document.getElementById('start-page')
-  replaceThis.innerHTML = ''
+  let spanAlert = document.getElementById('alert')
+  let startPage = document.getElementById('start-page')
+  // let alertdiv = document.createElement('div')
   UserApi.checkUser(input.value)
   .then(userJSON => {
-    console.log("userJSON", userJSON);
-    const current_user = new User(userJSON)
-    replaceThis.append(current_user.renderFoundUser())
+    if (userJSON.message === "Invalid"){
+      spanAlert.innerHTML =
+      `
+      <br>
+      <div class="alert alert-danger" role="alert">
+        Invalid Username!
+      </div>
+        `
+    } else {
+      const current_user = new User(userJSON)
+      console.log("else", current_user);
+      startPage.innerHTML = ''
+      startPage.append(current_user.renderFoundUser())
+    }
   })
 })
 

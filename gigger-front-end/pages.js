@@ -1,5 +1,6 @@
 let STARTPAGE = `
 <div id="start-page" class="container">
+<span id="alert"></span>
 <div class='row'>
   <div id='login' class='col-5'>
     <label for='login-form' class='label-header' id='login-header'>Log In</label>

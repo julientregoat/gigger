@@ -6,7 +6,7 @@ def check_user
   if @user
     render json: @user
   else
-    render json: {message:"Username does not exist"}
+    render json: {message:"Invalid"}
   end
 end
 
