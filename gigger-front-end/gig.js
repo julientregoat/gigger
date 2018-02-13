@@ -5,8 +5,13 @@ const Gig = (function() {
       this.title = title;
       this.body = body;
       this.poster = poster.name;
-      this.tag_id = tag.id;
+      this.tag = tag.name;
       this.createdAt = created_at.slice(0, 10);
+    }
+
+    renderFull(){
+      document.getElementById('show-gig-content')
+      console.log("getting here")
     }
 
     render() {
@@ -18,8 +23,9 @@ const Gig = (function() {
         <h5 class="mb-1">${this.title}</h5>
         <small>${this.createdAt}</small>
       </div>
-      <p class="mb-1">${this.body}</p>
-      <span class="badge badge-success">${this.tag}</span>`
+      <p class="mb-1">${this.body.slice(0,60)}</p>
+      ${Tag.renderBadge(this.tag)}`
+      newGig.addEventListener('click', this.renderFull)
       return newGig
 
     }
