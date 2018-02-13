@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show,:update,:destroy]
 
+def check_user
+  @user = User.find_by(params[:username])
+  if @user
+    # render logged in user page
+  else
+    # render login page saying user does not exist
+end
+
 def index
   users = User.all
   render json: users, status: 200
