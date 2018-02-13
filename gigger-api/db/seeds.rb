@@ -19,4 +19,6 @@ sa = Tag.create(name: 'Sales')
 jt = User.create(username: "jtregoat", email: "jules@jules.nyc")
 
 # fake gigs for testing
-Gig.create(title: "Server Position Available", body: "Must have weekend availability.", poster_id: jt.id, tag_id: fb.id)
+gig = Gig.create(title: "Server Position Available", body: "Must have weekend availability.", poster_id: jt.id, tag_id: fb.id)
+
+gig.comments << Comment.create(content: "this job is dope!!!", user_id: jt.id, gig_id: gig.id)
