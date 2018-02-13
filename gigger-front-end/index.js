@@ -1,11 +1,26 @@
 document.getElementById('current-page').innerHTML = STARTPAGE;
 
-document.addEventListener('DOMContentloaded', function(){
+document.getElementById('login-btn').addEventListener('click', function(event){
+  event.preventDefault();
+  let input = document.getElementById('username-input-login')
+  UserApi.checkUser(input.value)
+  .then(usersJSON => console.log(usersJSON))
+
+
+
+  // .then(usersJSON =>
+  //   usersJSON.filter(user =>
+  //     user.username === input.value
+  //     console.log(user)
+  //   )
+  // )
 })
 
+// REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
+// document.addEventListener('DOMContentloaded', function(){
+// })
 
 document.getElementById('view-gigs').addEventListener('click', function (){
-
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;
   const gigsList = document.getElementById('gigs-list-group')
   gigsList.innerHTML = ''
@@ -15,9 +30,9 @@ document.getElementById('view-gigs').addEventListener('click', function (){
       gigsList.append(newGig.render())
     })
   })
-
 })
 
+///// have to make a render for your gigs
 document.getElementById('your-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
 })
@@ -25,7 +40,8 @@ document.getElementById('your-gigs').addEventListener('click', function (){
 document.getElementById('account').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
   const userInfoDiv = document.getElementById('user-info')
-  //make sure to put current_user here
+//make sure to put current_user here
+//i hardcoded in 3 to make it work for now
   UserApi.fetchUser(3).then((userJSON) => {
     const newUser = new User(userJSON)
     userInfoDiv.append(newUser.render())
