@@ -5,7 +5,7 @@ const Gig = (function() {
       this.title = title;
       this.body = body;
       this.poster = poster.name;
-      this.tag_id = tag.id;
+      this.tag = tag.name;
       this.createdAt = created_at.slice(0, 10);
     }
 
@@ -19,7 +19,7 @@ const Gig = (function() {
         <small>${this.createdAt}</small>
       </div>
       <p class="mb-1">${this.body}</p>
-      <span class="badge badge-success">${this.tag}</span>`
+      ${Tag.renderBadge(this.tag)}`
       return newGig
 
     }
