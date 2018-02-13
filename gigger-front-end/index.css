@@ -5,3 +5,45 @@ body {
 a {
   color: black !important;
 }
+
+.container {
+  position: fixed !important;
+}
+
+/* start page stuff  */
+
+#start-page {
+  margin-top: 100px !important;
+  margin-left: 300px !important;
+}
+
+#or {
+  padding-top: 140px !important;
+  font-size: 24px !important;
+}
+
+.label-header {
+  padding-bottom: 20px !important;
+  font-weight: bold !important;
+  font-size: 40px;
+}
+
+#login-header {
+  padding-bottom: 50px !important;
+}
+
+/* all gigs page stuff */
+
+#all-gigs-page {
+  margin-top: 50px !important;
+  margin-left: 100px !important;
+}
+
+#all-gigs-page > div {
+  height: 600px;
+  width: auto;
+}
+
+#gigs-search {
+  padding-bottom: 25px;
+}
