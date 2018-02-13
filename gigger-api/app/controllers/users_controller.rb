@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show,:update,:destroy]
 
 def check_user
-  @user = User.find_by(username: params[:username])
+  @user = User.find_by(username: params[:user][:username])
   if @user
     render json: @user
   else

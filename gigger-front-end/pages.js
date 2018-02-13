@@ -8,7 +8,7 @@ let STARTPAGE = `
         <label for='username-input-login'>Username</label>
         <input type='text' class='form-control' id='username-input-login' placeholder='Enter username'>
       </div>
-      <button type='submit' class='btn btn-danger'>Log In</button>
+      <button type='submit' id='login-btn' class='btn btn-danger'>Log In</button>
     </form>
   </div>
   <div id='or' class='col-1'>
