@@ -1,20 +1,38 @@
 const Gig = (function() {
   return class Gig {
-    constructor({ id, title, body, poster, tag, created_at}) {
+    constructor({ id, title, body, poster, tag, created_at, comments}) {
       this.id = id;
       this.title = title;
       this.body = body;
       this.poster = poster.name;
       this.tag = tag.name;
       this.createdAt = created_at.slice(0, 10);
+      this.comments = comments
+    }
+
+    renderComments(){
+      let commentsHTML = ""
+      for (const comment of this.comments){
+        let commentHTML =
+        `<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">${comment.content}</h5>
+            <small>Date Posted</small>
+          </div>
+          <p class="mb-1">Commenter</p>
+        </a>`
+        commentsHTML += commentHTML
+      }
     }
 
     renderFull(){
       const showTitle = document.getElementById('show-gig-title')
       const showBody = document.getElementById('show-gig-body')
-      const showComments = document.getElementById('show-gig-comments')
+      const commentsList = document.getElementById('comments-list-group')
+
       showTitle.innerHTML = this.title
       showBody.innerHTML = this.body
+      //commentsList.innerHTML = this.renderComments()
     }
 
     render(){

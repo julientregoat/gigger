@@ -3,5 +3,6 @@ class GigSerializer < ActiveModel::Serializer
 
   belongs_to :tag
   belongs_to :poster
+  has_many :comments
 
 end
