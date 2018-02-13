@@ -1,11 +1,12 @@
 const Gig = (function() {
   return class Gig {
-    constructor({ id, title, body, poster, tag }) {
+    constructor({ id, title, body, poster, tag, created_at}) {
       this.id = id;
       this.title = title;
       this.body = body;
-      this.poster_id = poster.id;
+      this.poster = poster.name;
       this.tag_id = tag.id;
+      this.createdAt = created_at.slice(0, 10);
     }
 
     render() {
@@ -15,7 +16,7 @@ const Gig = (function() {
       newGig.innerHTML =
       `<div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${this.title}</h5>
-        <small>Date Posted</small>
+        <small>${this.createdAt}</small>
       </div>
       <p class="mb-1">${this.body}</p>
       <span class="badge badge-success">${this.tag}</span>`
