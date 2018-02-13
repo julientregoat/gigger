@@ -9,9 +9,7 @@ const GigApi = (function() {
       .then(res => res.json())
       .then(json => {
         for (const gig of json){
-          const newGig = new Gig({id: gig.id, title: gig.title, body: gig.body, poster_id: gig.poster.id, tag_id: gig.tag.id})
-          console.log(json)
-          console.log(newGig)
+          const newGig = new Gig(gig)
         }
       })
     }
