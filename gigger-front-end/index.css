@@ -40,10 +40,16 @@ a {
 }
 
 #all-gigs-page > div {
-  height: 600px;
-  width: auto;
+  height: 600px; !important
+  width: auto; !important
 }
 
 #gigs-search {
   padding-bottom: 25px;
+}
+
+#show-gig-content, #gigs-list-group {
+  width: 700px !important;
+  height: 600px !important;
+  overflow: scroll !important;
 }
