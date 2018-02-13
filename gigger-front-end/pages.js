@@ -69,12 +69,12 @@ let VIEWGIGSPAGE = `
     <div id="show-gig" class="list-group col-6">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
-          <h1 class="col-4">Gig Title</h1>
-          <a id="view-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <h4 class="col-4" id="show-gig-title">Gig Title</h4>
+          <a id="show-gig-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
             View Comments
           </a>
         </div>
-        <p>Gig Info</p>
+        <p id="show-gig-body">Gig Info</p>
       </div>
     </div>
   </div>
