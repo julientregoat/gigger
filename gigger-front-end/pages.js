@@ -149,19 +149,12 @@ let ACCOUNTPAGE = `
   <div id="account-page-div" class="list-group col-10">
     <div id="show-account-content" class="list-group-item">
     <div class="row justify-content-between">
-      <h4 class="col-4" id="account-name">AccountName</h1>
+      <h4 class="col-4" id="account-name">Your Account Page</h1>
     </div>
-    <p>Gig Info</p>
+      <div class="user-info">
+      </div>
   </div>
 </div>
 </div>`
-
-function populateAccountInfo(){
-  UserApi.getUserInfo(1)
-  .then(json => console.log(json))
-  // document.getElementById('account-name')
-}
-
-populateAccountInfo()
 
 ////////////////////////////////////////////////////////////////

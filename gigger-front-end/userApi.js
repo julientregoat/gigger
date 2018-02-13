@@ -1,8 +1,8 @@
 const UserApi = (function(){
   return class UserApi {
 
-  static getUserInfo(user_id){
-    return fetch(`http://localhost:3000/users/${user_id}`)
+  static getUserInfo(){
+    return fetch(`http://localhost:3000/users/3`)
     .then(res => res.json())
   }
 

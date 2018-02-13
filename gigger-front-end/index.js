@@ -21,12 +21,13 @@ document.getElementById('view-gigs').addEventListener('click', function (){
 document.getElementById('your-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
 })
-
-document.getElementById('your-gigs').addEventListener('click', function (){
-  document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
-})
+//
+// document.getElementById('your-gigs').addEventListener('click', function (){
+//   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
+// })
 
 document.getElementById('account').addEventListener('click', function (){
-  //change this based on logged in or not
   document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
+  const userInfoDiv = document.getElementById('user-info')
+  User.renderUser()
 })
