@@ -91,8 +91,8 @@ let VIEWGIGSPAGE = `
 
 let YOURGIGSPAGE = `
 <div id="your-gigs-page" class="container-fluid">
- <div id="add-gig-btn">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add A Gig</button>
+ <div id="add-gig-btn-div">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="add-gig-btn" type="submit">Add A Gig</button>
   </div>
 
   <div class="collapse" id="toggleComments">
@@ -144,6 +144,31 @@ let YOURGIGSPAGE = `
   </div>
 </div>`
 
-let ACCOUNTPAGE = `<div id="account-page" class="container">
-  account placeholder
+// <a id="edit-account" class="btn btn-outline-success my-2 my-sm-0" href="#editAccount" role="button">
+//   Edit Account
+// </a>
+
+let ACCOUNTPAGE = `
+<div id="account-page" class="container-fluid">
+<div id="edit-account-btn-div">
+   <button class="btn btn-outline-success my-2 my-sm-0" id="edit-account-btn" type="submit">Edit Profile</button>
+ </div>
+  <div id="account-page-div" class="list-group col-10">
+    <div id="show-account-content" class="list-group-item">
+    <div class="row justify-content-between">
+      <h4 class="col-4" id="account-name">AccountName</h1>
+    </div>
+    <p>Gig Info</p>
+  </div>
+</div>
 </div>`
+
+function populateAccountInfo(){
+  UserApi.getUserInfo(1)
+  .then(json => console.log(json))
+  // document.getElementById('account-name')
+}
+
+populateAccountInfo()
+
+////////////////////////////////////////////////////////////////
