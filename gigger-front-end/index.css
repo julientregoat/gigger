@@ -48,7 +48,6 @@ a {
   padding-bottom: 10px !important;
 }
 
-#view-comments {
-  margin-top: 10px !important;
-  margin-bottom: 20px !important;
+#show-gig-comments {
+  height: 40px !important;
 }

@@ -10,11 +10,14 @@ const Gig = (function() {
     }
 
     renderFull(){
-      document.getElementById('show-gig-content')
-      console.log("getting here")
+      const showTitle = document.getElementById('show-gig-title')
+      const showBody = document.getElementById('show-gig-body')
+      const showComments = document.getElementById('show-gig-comments')
+      showTitle.innerHTML = this.title
+      showBody.innerHTML = this.body
     }
 
-    render() {
+    render(){
       let newGig = document.createElement('a')
       newGig.className = "list-group-item list-group-item-action flex-column align-items-start"
       newGig.href = "#"
@@ -25,9 +28,8 @@ const Gig = (function() {
       </div>
       <p class="mb-1">${this.body.slice(0,60)}</p>
       ${Tag.renderBadge(this.tag)}`
-      newGig.addEventListener('click', this.renderFull)
+      newGig.addEventListener('click', this.renderFull.bind(this))
       return newGig
-
     }
 
   };
