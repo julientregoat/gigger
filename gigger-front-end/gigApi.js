@@ -7,11 +7,11 @@ const GigApi = (function() {
     static fetchGigs() {
       return fetch("http://localhost:3000/gigs")
       .then(res => res.json())
-      .then(json => {
-        for (const gig of json){
-          const newGig = new Gig(gig)
-        }
-      })
+      // .then(json => {
+      //   for (const gig of json){
+      //     const newGig = new Gig(gig)
+      //   }
+      // })
     }
   };
 })();

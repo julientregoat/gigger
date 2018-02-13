@@ -5,9 +5,17 @@ document.addEventListener('DOMContentloaded', function(){
 
 
 document.getElementById('view-gigs').addEventListener('click', function (){
+
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;
-  GigApi.fetchGigs()
-  Gig.renderAllGigs()
+  const gigsList = document.getElementById('gigs-list-group')
+  gigsList.innerHTML = ''
+  GigApi.fetchGigs().then((gigs) => {
+    gigs.forEach((gig) => {
+      const newGig = new Gig(gig)
+      gigsList.append(newGig.render())
+    })
+  })
+
 })
 
 document.getElementById('your-gigs').addEventListener('click', function (){
