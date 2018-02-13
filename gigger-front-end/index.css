@@ -6,15 +6,9 @@ a {
   color: black !important;
 }
 
-/* .container {
-  position: fixed !important;
-} */
-
 /* start page stuff  */
 
 #start-page {
-  margin-top: 100px !important;
-  margin-left: 300px !important;
 }
 
 #or {
@@ -35,11 +29,6 @@ a {
 /* all gigs page stuff */
 
 #all-gigs-page {
-  margin-top: 50px !important;
-  margin-left: 100px !important;
-}
-
-#all-gigs-page > .row {
   padding-top: 20px;
 }
 
@@ -61,7 +50,7 @@ a {
 
 #comments-top {
   font-size: 24px !important;
-  padding-bottom: 5px !important;
+  padding-bottom: 10px !important;
 }
 
 #view-comments {

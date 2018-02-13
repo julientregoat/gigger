@@ -1,4 +1,6 @@
-let STARTPAGE = `<div class='row'>
+let STARTPAGE = `
+<div id="start-page">
+<div class='row'>
   <div id='login' class='col-5'>
     <label for='login-form' class='label-header' id='login-header'>Log In</label>
     <form id='login-form'>
@@ -26,9 +28,12 @@ let STARTPAGE = `<div class='row'>
       <button type='submit' class='btn btn-danger'>Sign Up</button>
     </form>
   </div>
+</div>
 </div>`
 
-let VIEWGIGSPAGE = `<form class="form-inline" id="gigs-search">
+let VIEWGIGSPAGE = `
+<div id="all-gigs-page">
+  <form class="form-inline" id="gigs-search">
     <input class="form-control mr-sm-2" type="search" placeholder="Enter keywords" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Gigs</button>
   </form>
@@ -128,7 +133,7 @@ let VIEWGIGSPAGE = `<form class="form-inline" id="gigs-search">
   </div>
 
   <div class="row">
-    <div id="gigs-list" class="col-8">
+    <div id="gigs-list" class="col-6">
       <div id="gigs-list-group" class="list-group">
 
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -139,136 +144,10 @@ let VIEWGIGSPAGE = `<form class="form-inline" id="gigs-search">
           <p class="mb-1">Content preview</p>
           <span class="badge badge-success">Tag</span>
         </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-primary">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-danger">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
-
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-warning">Tag</span>
-        </a>
       </div>
     </div>
 
-    <div id="show-gig" class="list-group col-4">
+    <div id="show-gig" class="list-group col-6">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
           <h1 class="col-4">Gig Title</h1>
@@ -276,10 +155,11 @@ let VIEWGIGSPAGE = `<form class="form-inline" id="gigs-search">
             View Comments
           </a>
         </div>
-        <p>Gig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig InfoGig Info</p>
+        <p>Gig Info</p>
       </div>
     </div>
-  </div>`
+  </div>
+</div>`
 
 
 let YOURGIGSPAGE = `<div id="your-gigs-page" class="container invisible">
