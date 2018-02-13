@@ -6,15 +6,16 @@ const User = (function(){
     this.email = email
   }
 
-  static renderUser(){
-    UserApi.getUserInfo(3)
-    .then(json => {
-      console.log(json.username)
-      username = json.username
-      email = json.email
-    })
-
-  }
+  render(){
+    let div = document.createElement('div')
+    let name = document.createElement('p')
+    let email = document.createElement('p')
+    name.innerText = "Username:  " + this.username
+    email.innerText = "Email:  " + this.email
+    div.append(name)
+    div.append(email)
+    return div
+    }
 
  }
 })()
