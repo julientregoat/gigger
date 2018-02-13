@@ -6,7 +6,24 @@ const User = (function(){
     this.email = email
   }
 
-  render(){
+  renderFoundUser(){
+    let renderUser = document.createElement('div')
+    renderUser.innerHTML =
+    `
+    <div id="welcome-page" class="container-fluid">
+      <div id="welcome-page-div" class="list-group col-10">
+        <div id="show-account-content" class="list-group-item">
+        <div class="row justify-content-between">
+          <h4 class="col-4" id="account-name">Welcome ${this.username}</h1>
+        </div>
+      </div>
+    </div>
+    </div>
+      `
+    return renderUser
+  }
+
+  renderAccount(){
     let div = document.createElement('div')
     let name = document.createElement('p')
     let email = document.createElement('p')

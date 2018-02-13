@@ -3,17 +3,15 @@ document.getElementById('current-page').innerHTML = STARTPAGE;
 document.getElementById('login-btn').addEventListener('click', function(event){
   event.preventDefault();
   let input = document.getElementById('username-input-login')
+
+  let replaceThis = document.getElementById('start-page')
+  replaceThis.innerHTML = ''
   UserApi.checkUser(input.value)
-  .then(usersJSON => console.log(usersJSON))
-
-
-
-  // .then(usersJSON =>
-  //   usersJSON.filter(user =>
-  //     user.username === input.value
-  //     console.log(user)
-  //   )
-  // )
+  .then(userJSON => {
+    console.log("userJSON", userJSON);
+    const current_user = new User(userJSON)
+    replaceThis.append(current_user.renderFoundUser())
+  })
 })
 
 // REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
@@ -44,6 +42,6 @@ document.getElementById('account').addEventListener('click', function (){
 //i hardcoded in 3 to make it work for now
   UserApi.fetchUser(3).then((userJSON) => {
     const newUser = new User(userJSON)
-    userInfoDiv.append(newUser.render())
+    userInfoDiv.append(newUser.renderAccount())
   })
 })
