@@ -39,9 +39,8 @@ a {
   margin-left: 100px !important;
 }
 
-#all-gigs-page > div {
-  height: 600px; !important
-  width: auto; !important
+#all-gigs-page > .row {
+  padding-top: 20px;
 }
 
 #gigs-search {
@@ -52,4 +51,15 @@ a {
   width: 700px !important;
   height: 600px !important;
   overflow: scroll !important;
+}
+
+#toggleComments {
+  width: 1445px !important;
+  max-height: 600px !important;
+  overflow: scroll !important;
+}
+
+#comments-top {
+  font-size: 24px !important;
+  padding-bottom: 5px !important;
 }
