@@ -1,5 +1,5 @@
 let STARTPAGE = `
-<div id="start-page">
+<div id="start-page" class="container">
 <div class='row'>
   <div id='login' class='col-5'>
     <label for='login-form' class='label-header' id='login-header'>Log In</label>
@@ -32,7 +32,7 @@ let STARTPAGE = `
 </div>`
 
 let VIEWGIGSPAGE = `
-<div id="all-gigs-page">
+<div id="all-gigs-page" class="container-fluid">
   <form class="form-inline" id="gigs-search">
     <input class="form-control mr-sm-2" type="search" placeholder="Enter keywords" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Gigs</button>
