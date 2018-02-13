@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# tags initial seed
+# Tag.create(name: 'Music')
+# Tag.create(name: 'Photography')
+# Tag.create(name: 'Food/Beverage')
+# Tag.create(name: 'Web Design')
+# Tag.create(name: 'Film/Video')
+# Tag.create(name: 'Sales')
