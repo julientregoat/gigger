@@ -63,16 +63,9 @@ let VIEWGIGSPAGE = `
     <div id="gigs-list" class="col-6">
       <div id="gigs-list-group" class="list-group">
 
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-success">Tag</span>
-        </a>
       </div>
     </div>
+
     <div id="show-gig" class="list-group col-6">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
