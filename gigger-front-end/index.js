@@ -21,13 +21,13 @@ document.getElementById('view-gigs').addEventListener('click', function (){
 document.getElementById('your-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
 })
-//
-// document.getElementById('your-gigs').addEventListener('click', function (){
-//   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
-// })
 
 document.getElementById('account').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
   const userInfoDiv = document.getElementById('user-info')
-  User.renderUser()
+  //make sure to put current_user here
+  UserApi.fetchUser(3).then((userJSON) => {
+    const newUser = new User(userJSON)
+    userInfoDiv.append(newUser.render())
+  })
 })

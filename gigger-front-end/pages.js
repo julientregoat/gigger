@@ -151,7 +151,8 @@ let ACCOUNTPAGE = `
     <div class="row justify-content-between">
       <h4 class="col-4" id="account-name">Your Account Page</h1>
     </div>
-      <div class="user-info">
+      <div id="user-info">
+        <br>
       </div>
   </div>
 </div>
