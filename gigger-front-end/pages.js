@@ -133,7 +133,7 @@ let VIEWGIGSPAGE = `
   </div>
 
   <div class="row">
-    <div id="gigs-list" class="col-6">
+    <div id="gigs-list" class="col-5">
       <div id="gigs-list-group" class="list-group">
 
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -146,8 +146,7 @@ let VIEWGIGSPAGE = `
         </a>
       </div>
     </div>
-
-    <div id="show-gig" class="list-group col-6">
+    <div id="show-gig" class="list-group col-5">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
           <h1 class="col-4">Gig Title</h1>

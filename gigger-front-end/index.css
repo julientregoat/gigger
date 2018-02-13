@@ -37,20 +37,18 @@ a {
 }
 
 #show-gig-content, #gigs-list-group {
-  width: 700px !important;
   height: 600px !important;
   overflow: scroll !important;
 }
 
 #toggleComments {
-  width: 1445px !important;
   max-height: 600px !important;
   overflow: scroll !important;
 }
 
 #comments-top {
   font-size: 24px !important;
-  padding-bottom: 10px !important;
+  padding-bottom: 50px !important;
 }
 
 #view-comments {
