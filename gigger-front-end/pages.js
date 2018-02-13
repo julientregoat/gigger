@@ -161,10 +161,10 @@ let VIEWGIGSPAGE = `
 </div>`
 
 
-let YOURGIGSPAGE = `<div id="your-gigs-page" class="container invisible">
+let YOURGIGSPAGE = `<div id="your-gigs-page" class="container">
   your gigs placeholder
 </div>`
 
-let ACCOUNTPAGE = `<div id="account-page" class="container invisible">
+let ACCOUNTPAGE = `<div id="account-page" class="container">
   account placeholder
 </div>`

@@ -8,9 +8,15 @@
 
 
 # tags initial seed
-# Tag.create(name: 'Music')
-# Tag.create(name: 'Photography')
-# Tag.create(name: 'Food/Beverage')
-# Tag.create(name: 'Web Design')
-# Tag.create(name: 'Film/Video')
-# Tag.create(name: 'Sales')
+mu = Tag.create(name: 'Music')
+ph = Tag.create(name: 'Photography')
+fb = Tag.create(name: 'Food/Beverage')
+wd = Tag.create(name: 'Web Design')
+fi = Tag.create(name: 'Film/Video')
+sa = Tag.create(name: 'Sales')
+
+# fake user for testing
+jt = User.create(username: "jtregoat", email: "jules@jules.nyc")
+
+# fake gigs for testing
+Gig.create(title: "Server Position Available", body: "Must have weekend availability.", poster_id: jt.id, tag_id: fb.id)
