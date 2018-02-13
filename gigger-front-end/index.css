@@ -25,11 +25,12 @@ a {
 
 /* all gigs page stuff */
 
-#all-gigs-page {
+#all-gigs-page, #your-gigs-page {
   padding-top: 20px;
 }
 
-#gigs-search {
+
+#gigs-search, #add-gig-btn {
   padding-bottom: 25px;
 }
 
