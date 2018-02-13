@@ -5,7 +5,7 @@ const GigApi = (function() {
     }
 
     static fetchGigs() {
-      fetch("http://localhost:3000/gigs")
+      return fetch("http://localhost:3000/gigs")
       .then(res => res.json())
       .then(json => {
         for (const gig of json){

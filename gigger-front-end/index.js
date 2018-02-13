@@ -7,6 +7,7 @@ document.addEventListener('DOMContentloaded', function(){
 document.getElementById('view-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;
   GigApi.fetchGigs()
+  Gig.renderAllGigs()
 })
 
 document.getElementById('your-gigs').addEventListener('click', function (){
