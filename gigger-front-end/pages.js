@@ -80,9 +80,61 @@ let VIEWGIGSPAGE = `
   </div>
 </div>`
 
+///////////////////////////////////////////////////////////////////////////////
 
-let YOURGIGSPAGE = `<div id="your-gigs-page" class="container">
-  your gigs placeholder
+let YOURGIGSPAGE = `
+<div id="your-gigs-page" class="container-fluid">
+ <div id="add-gig-btn">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add A Gig</button>
+  </div>
+
+  <div class="collapse" id="toggleComments">
+    <div id="comments-top">
+      Comments for Gig Title
+      <a class="close" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <span aria-hidden="true">&times;</span>
+      </a>
+    </div>
+
+    <div id="comments-list-group" class="list-group">
+
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Comment</h5>
+          <small>Date Posted</small>
+        </div>
+        <p class="mb-1">Commenter</p>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="gigs-list" class="col-6">
+      <div id="gigs-list-group" class="list-group">
+
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Gig Name</h5>
+            <small>Date Posted</small>
+          </div>
+          <p class="mb-1">Content preview</p>
+          <span class="badge badge-success">Tag</span>
+        </a>
+      </div>
+    </div>
+    <div id="show-gig" class="list-group col-6">
+      <div id="show-gig-content" class="list-group-item">
+        <div class="row justify-content-between">
+          <h1 class="col-4">Gig Title</h1>
+          <a id="view-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+            View Comments
+          </a>
+        </div>
+        <p>Gig Info</p>
+      </div>
+    </div>
+  </div>
 </div>`
 
 let ACCOUNTPAGE = `<div id="account-page" class="container">
