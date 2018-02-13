@@ -9,6 +9,11 @@ const Gig = (function() {
       this.createdAt = created_at.slice(0, 10);
     }
 
+    renderFull(){
+      document.getElementById('show-gig-content')
+      console.log("getting here")
+    }
+
     render() {
       let newGig = document.createElement('a')
       newGig.className = "list-group-item list-group-item-action flex-column align-items-start"
@@ -18,8 +23,9 @@ const Gig = (function() {
         <h5 class="mb-1">${this.title}</h5>
         <small>${this.createdAt}</small>
       </div>
-      <p class="mb-1">${this.body}</p>
+      <p class="mb-1">${this.body.slice(0,60)}</p>
       ${Tag.renderBadge(this.tag)}`
+      newGig.addEventListener('click', this.renderFull)
       return newGig
 
     }

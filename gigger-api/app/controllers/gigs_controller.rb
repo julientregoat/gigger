@@ -32,7 +32,7 @@ class GigsController < ApplicationController
     params.permit(:title, :body, :poster_id, :tag_id)
   end
 
-  def set_note
+  def set_gig
     @gig = Gig.find(params[:id])
   end
 
