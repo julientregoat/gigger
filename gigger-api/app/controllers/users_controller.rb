@@ -16,9 +16,15 @@ def index
 end
 
 def create
-  user = User.create(user_params)
-  render json: user, status: 201
+  user = User.new(user_params)
+  if user.valid?
+    user.save
+    render json: user, status: 201
+  else
+    render json: { errors: user.errors.full_messages }, status: 422
+  end
 end
+
 
 def update
   @user.update(user_params)
