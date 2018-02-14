@@ -1,5 +1,7 @@
 document.getElementById('current-page').innerHTML = STARTPAGE;
 
+let current_user = ''
+
 document.getElementById('login-btn').addEventListener('click', function(event){
   event.preventDefault();
   let input = document.getElementById('username-input-login')
@@ -17,13 +19,15 @@ document.getElementById('login-btn').addEventListener('click', function(event){
       </div>
         `
     } else {
-      const current_user = new User(userJSON)
-      console.log("else", current_user);
+      current_user = new User(userJSON)
+      // console.log("else", current_user);
       startPage.innerHTML = ''
       startPage.append(current_user.renderFoundUser())
     }
   })
 })
+
+// console.log("current user", current_user);
 
 // REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
 // document.addEventListener('DOMContentloaded', function(){
@@ -49,9 +53,10 @@ document.getElementById('your-gigs').addEventListener('click', function (){
 document.getElementById('account').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
   const userInfoDiv = document.getElementById('user-info')
+  console.log("current", current_user);
 //make sure to put current_user here
 //i hardcoded in 3 to make it work for now
-  UserApi.fetchUser(3).then((userJSON) => {
+  UserApi.fetchUser(current_user.id).then((userJSON) => {
     const newUser = new User(userJSON)
     userInfoDiv.append(newUser.renderAccount())
   })
