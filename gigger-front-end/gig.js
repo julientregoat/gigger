@@ -10,37 +10,54 @@ const Gig = (function() {
       this.comments = comments
     }
 
-    static postComment(comment){
-      console.log(comment)
-      let commentContent = document.getElementById('new-comment-input').value
-      fetch('http://localhost:3000/comments',{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({comment: {gig_id: comment.dataset.gig_id, user_id: current_user.id, content: commentContent}})
-      }).then(res => console.log(res))
+    static deleteComment(commentElement){
+      console.log(commentElement)
+    }
+
+    static generateCommentHTML(comment){
+      let commentHTML = `<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">${comment.content}</h5>
+          <small>${comment.created_at.slice(0,10)}</small>
+        </div>
+        <p class="mb-1">${comment.user.username}</p>
+        ${comment.user.username === current_user.username ? `<button type="button" class="btn btn-warning btn-sm" data-comment_id="${comment.id}" onclick="deleteComment(this)">Delete</button>` : ""}
+      </a>`
+      return commentHTML
     }
 
     renderComments(){
       let commentsHTML = ""
       for (const comment of this.comments){
-        let commentHTML =
-        `<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${comment.content}</h5>
-            <small>${comment.created_at.slice(0,10)}</small>
-          </div>
-          <p class="mb-1">${comment.user.username}</p>
-        </a>`
-        commentsHTML += commentHTML
+        commentsHTML += Gig.generateCommentHTML(comment)
       }
       return commentsHTML
+    }
+
+    static postComment(comment){
+      let commentContent = document.getElementById('new-comment-input').value
+      const commentsList = document.getElementById('comments-list-group')
+      fetch('http://localhost:3000/comments',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({comment: {gig_id: comment.dataset.gig_id, user_id: current_user.id, content: commentContent}})
+      })
+      .then(res => res.json())
+      .then(comment => {
+        if (comment.message){
+          alert('You must be logged in to comment.')
+        } else {
+          commentsList.innerHTML += Gig.generateCommentHTML(comment)
+        }
+      }) //append new commment pessemisticly
     }
 
     renderFull(){
       const showTitle = document.getElementById('show-gig-title')
       const showBody = document.getElementById('show-gig-body')
+      const showCommentsButton= document.getElementById('show-gig-comments')
       const commentsList = document.getElementById('comments-list-group')
       const newCommentButton = document.getElementById('submit-new-comment')
 
@@ -48,6 +65,7 @@ const Gig = (function() {
       showBody.innerHTML = this.body
       commentsList.innerHTML = this.renderComments()
       newCommentButton.dataset.gig_id = this.id
+      showCommentsButton.className = "btn btn-danger col-3"
     }
 
     render(){

@@ -75,7 +75,7 @@ let VIEWGIGSPAGE = `
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
           <h4 class="col-4" id="show-gig-title">Hi!</h4>
-          <a id="show-gig-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <a id="show-gig-comments" class="btn btn-danger col-3 invisible" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
             View Comments
           </a>
         </div>

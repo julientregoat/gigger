@@ -3,10 +3,9 @@ class CommentsController < ApplicationController
   def create
     new_comment = Comment.new(comment_params)
     if new_comment.save
-      byebug
+      render json: new_comment, status: 201
     else
-      byebug
-      render json: {message: "Something is wrong with your submitted content. Check that you're logged in."}
+      render json: {message: "Something is wrong with your submitted comment."}, status: 400
     end
   end
 
