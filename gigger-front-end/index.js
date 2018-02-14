@@ -20,14 +20,13 @@ document.getElementById('login-btn').addEventListener('click', function(event){
         `
     } else {
       current_user = new User(userJSON)
-      // console.log("else", current_user);
+      let namePlaceholder = document.getElementById('currentuser-name')
+      namePlaceholder.innerHTML = current_user.username
       startPage.innerHTML = ''
       startPage.append(current_user.renderFoundUser())
     }
   })
 })
-
-// console.log("current user", current_user);
 
 // REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
 // document.addEventListener('DOMContentloaded', function(){
