@@ -10,18 +10,29 @@ const Gig = (function() {
       this.comments = comments
     }
 
-    static deleteComment(commentElement){
+    static editComment(commentElement){
       console.log(commentElement)
     }
 
+    static deleteComment(commentElement){
+      let commentID = commentElement.dataset.comment_id
+      fetch(`http://localhost:3000/comments/${commentID}`, {method: 'DELETE'})
+      .then(res => {
+        document.getElementById(`comment-${commentID}`).remove()
+        alert('Comment deleted.')})
+    }
+
     static generateCommentHTML(comment){
-      let commentHTML = `<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      let commentHTML =
+      `<a href="#" id="comment-${comment.id}"class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">${comment.content}</h5>
           <small>${comment.created_at.slice(0,10)}</small>
         </div>
-        <p class="mb-1">${comment.user.username}</p>
-        ${comment.user.username === current_user.username ? `<button type="button" class="btn btn-warning btn-sm" data-comment_id="${comment.id}" onclick="deleteComment(this)">Delete</button>` : ""}
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1">${comment.user.username}</p>
+          ${comment.user.username === current_user.username ? `<div><button type="button" class="btn btn-warning btn-sm" data-comment_id="${comment.id}" onclick="Gig.editComment(this)">Edit</button><button type="button" class="btn btn-danger btn-sm" data-comment_id="${comment.id}" onclick="Gig.deleteComment(this)">Delete</button></div>` : ""}
+        </div>
       </a>`
       return commentHTML
     }

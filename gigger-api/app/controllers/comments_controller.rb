@@ -9,6 +9,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    Comment.delete(params[:id])
+    render json: {message: 'Comment deleted'}, status: 200
+  end
+
   private
 
   def comment_params
