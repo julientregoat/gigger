@@ -10,6 +10,18 @@ const Gig = (function() {
       this.comments = comments
     }
 
+    static postComment(comment){
+      console.log(comment)
+      let commentContent = document.getElementById('new-comment-input').value
+      fetch('http://localhost:3000/comments',{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({comment: {gig_id: comment.dataset.gig_id, user_id: current_user.id, content: commentContent}})
+      }).then(res => console.log(res))
+    }
+
     renderComments(){
       let commentsHTML = ""
       for (const comment of this.comments){
@@ -30,10 +42,12 @@ const Gig = (function() {
       const showTitle = document.getElementById('show-gig-title')
       const showBody = document.getElementById('show-gig-body')
       const commentsList = document.getElementById('comments-list-group')
+      const newCommentButton = document.getElementById('submit-new-comment')
 
       showTitle.innerHTML = this.title
       showBody.innerHTML = this.body
       commentsList.innerHTML = this.renderComments()
+      newCommentButton.dataset.gig_id = this.id
     }
 
     render(){

@@ -41,14 +41,14 @@ let VIEWGIGSPAGE = `
 
   <div class="collapse" id="toggleComments">
 
-    <div class="new-comment row align-items-start">
+    <div class="new-comment row justify-content-center">
       <div class="input-group input-group-sm col-6">
         <div class="input-group-prepend">
           <span class="input-group-text">Enter a new comment:</span>
         </div>
-        <textarea class="form-control" aria-label="Enter a new comment:"></textarea>
+        <textarea id="new-comment-input" class="form-control" aria-label="Enter a new comment:"></textarea>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Submit</button>
+          <button id="submit-new-comment" class="btn btn-outline-secondary" type="button" onclick="Gig.postComment(this)">Submit</button>
         </div>
       </div>
     </div>
