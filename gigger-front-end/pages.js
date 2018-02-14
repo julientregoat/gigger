@@ -90,7 +90,9 @@ let VIEWGIGSPAGE = `
 let YOURGIGSPAGE =
 `<div id="all-gigs-page" class="container-fluid">
 
-  <button class="btn btn-outline-success my-2 my-sm-0" id="create-gig-button" type="submit">Create Gig</button>
+  <div id="create-gig">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="create-gig-button" type="submit">Create Gig</button>
+  </div>
 
   <div class="collapse" id="toggleComments">
 

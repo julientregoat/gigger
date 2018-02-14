@@ -27,9 +27,7 @@ function loginCallback(event){
   })
 }
 
-document.getElementById('login-form').addEventListener('submit', loginCallback)
-
-document.getElementById('sign-up-form').addEventListener('submit', function(event){
+function signUpCallback(event){
   event.preventDefault();
   let usernameField = document.getElementById('username-input-signup')
   let emailField = document.getElementById('email-input')
@@ -52,9 +50,7 @@ document.getElementById('sign-up-form').addEventListener('submit', function(even
     let textNode = document.createElement('p')
     textNode.innerHTML = error
     alert.append(textNode)
-  })
-  // alert.innerHTMl
-    }else{
+  })} else {
       current_user = new User(userJSON)
       let namePlaceholder = document.getElementById('currentuser-name')
       namePlaceholder.innerHTML = current_user.username
@@ -62,7 +58,10 @@ document.getElementById('sign-up-form').addEventListener('submit', function(even
       startPage.append(current_user.renderFoundUser())
   }})
 
-})
+}
+
+document.getElementById('login-form').addEventListener('submit', loginCallback)
+document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
 
 // REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
 // document.addEventListener('DOMContentloaded', function(){
@@ -96,6 +95,7 @@ document.getElementById('your-gigs').addEventListener('click', function (){
     alert("You can't do that while not logged in.")
     document.getElementById('current-page').innerHTML = STARTPAGE;
     document.getElementById('login-form').addEventListener('submit', loginCallback)
+    document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
   }
 })
 
@@ -113,5 +113,6 @@ document.getElementById('account').addEventListener('click', function (){
     alert('Log in to access account information.')
     document.getElementById('current-page').innerHTML = STARTPAGE;
     document.getElementById('login-form').addEventListener('submit', loginCallback)
+    document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
   }
 })
