@@ -6,6 +6,10 @@ a {
   color: black !important;
 }
 
+#button-group > button, #button-group > a {
+  color: white !important;
+}
+
 /* start page stuff  */
 
 #or {
@@ -70,7 +74,6 @@ nav a {
   padding-right: 40px !important; */
   /* margin: 0; */
 }
-
 /* li #nav-item {
   list-style:none;
   margin:10px;

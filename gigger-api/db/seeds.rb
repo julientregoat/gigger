@@ -14,6 +14,7 @@ fb = Tag.create(name: 'Food/Beverage')
 wd = Tag.create(name: 'Web Design')
 fi = Tag.create(name: 'Film/Video')
 sa = Tag.create(name: 'Sales')
+ot = Tag.create(name: 'Other')
 
 # fake user for testing
 jt = User.create(username: "jtregoat", email: "jules@jules.nyc")

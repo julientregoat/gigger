@@ -8,6 +8,7 @@ class GigsController < ApplicationController
   end
 
   def create
+    byebug
     gig = Gig.create(gig_params)
     render json: gig, status: 201
   end
@@ -34,7 +35,7 @@ class GigsController < ApplicationController
 
   private
   def gig_params
-    params.permit(:title, :body, :poster_id, :tag_id)
+    params.require(:gig).permit(:title, :body, :poster_id, :tag_id)
   end
 
   def set_gig

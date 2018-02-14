@@ -75,9 +75,13 @@ let VIEWGIGSPAGE = `
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
           <h4 class="col-4" id="show-gig-title">Hi!</h4>
-          <a id="show-gig-comments" class="btn btn-danger col-3 invisible" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
-            View Comments
-          </a>
+
+          <div id="button-group" class="btn-group invisible" role="group">
+            <a id="show-gig-comments" class="btn btn-danger" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Comments
+            </a>
+          </div>
+
         </div>
         <p id="show-gig-body">Select a gig to view it.</p>
       </div>
@@ -91,7 +95,7 @@ let YOURGIGSPAGE =
 `<div id="all-gigs-page" class="container-fluid">
 
   <div id="create-gig">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="create-gig-button" type="submit">Create Gig</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" id="create-gig-button" type="submit" onclick="Gig.createGig()">Create Gig</button>
   </div>
 
   <div class="collapse" id="toggleComments">
@@ -130,9 +134,14 @@ let YOURGIGSPAGE =
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
           <h4 class="col-4" id="show-gig-title">Hi!</h4>
-          <a id="show-gig-comments" class="btn btn-danger col-3 invisible" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
-            View Comments
-          </a>
+
+          <div id="button-group" class="btn-group invisible" role="group">
+            <a id="show-gig-comments" class="btn btn-info" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Comments
+            </a>
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
         </div>
         <p id="show-gig-body">Select a gig to view it.</p>
       </div>

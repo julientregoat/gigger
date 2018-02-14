@@ -74,7 +74,7 @@ document.getElementById('view-gigs').addEventListener('click', function (){
   GigApi.fetchGigs().then((gigs) => {
     gigs.forEach((gig) => {
       const newGig = new Gig(gig)
-      gigsList.append(newGig.renderPreview())
+      gigsList.prepend(newGig.renderPreview())
     })
   })
 })
@@ -88,7 +88,7 @@ document.getElementById('your-gigs').addEventListener('click', function (){
     GigApi.fetchYourGigs().then((gigs) => {
       gigs.forEach((gig) => {
         const newGig = new Gig(gig)
-        gigsList.append(newGig.renderPreview())
+        gigsList.prepend(newGig.renderPreview())
       })
     })
   } else {

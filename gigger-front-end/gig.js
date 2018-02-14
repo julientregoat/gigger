@@ -10,6 +10,21 @@ const Gig = (function() {
       this.comments = comments
     }
 
+    static createGig(){
+      const gigsList = document.getElementById('gigs-list-group')
+
+      fetch('http://localhost:3000/gigs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({title: "New Gig Title", body: "Insert your gig details here", poster_id: current_user.id, tag_id: 13})
+      }).then(res => res.json()).then(gig => {
+        const newGig = new Gig(gig)
+        gigsList.prepend(newGig.renderPreview())
+      })
+    }
+
     static submitEdit(commentId){
       let updatedContent = document.getElementById('edit-comment-input').value
       fetch(`http://localhost:3000/comments/${commentId}`, {
@@ -91,7 +106,7 @@ const Gig = (function() {
     renderFull(){
       const showTitle = document.getElementById('show-gig-title')
       const showBody = document.getElementById('show-gig-body')
-      const showCommentsButton= document.getElementById('show-gig-comments')
+      const buttonGroup= document.getElementById('button-group')
       const commentsList = document.getElementById('comments-list-group')
       const newCommentButton = document.getElementById('submit-new-comment')
 
@@ -99,7 +114,7 @@ const Gig = (function() {
       showBody.innerHTML = this.body
       commentsList.innerHTML = this.renderComments()
       newCommentButton.dataset.gig_id = this.id
-      showCommentsButton.className = "btn btn-danger col-3"
+      buttonGroup.className = "btn-group"
     }
 
     renderPreview(){
