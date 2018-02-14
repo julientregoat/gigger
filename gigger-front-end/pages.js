@@ -40,24 +40,28 @@ let VIEWGIGSPAGE = `
   </form>
 
   <div class="collapse" id="toggleComments">
-    <div id="comments-top">
-      Comments for Gig Title
-      <a class="close" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
-      <span aria-hidden="true">&times;</span>
-      </a>
-    </div>
 
-    <div id="comments-list-group" class="list-group">
-
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Comment</h5>
-          <small>Date Posted</small>
+    <div class="new-comment row align-items-start">
+      <div class="input-group input-group-sm col-6">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Enter a new comment:</span>
         </div>
-        <p class="mb-1">Commenter</p>
-      </a>
-
+        <textarea class="form-control" aria-label="Enter a new comment:"></textarea>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Submit</button>
+        </div>
+      </div>
     </div>
+
+      <div id="comments-top">
+        Comments
+        <a class="close" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+
+      <div id="comments-list-group" class="list-group">
+      </div>
   </div>
 
   <div class="row">
@@ -70,12 +74,12 @@ let VIEWGIGSPAGE = `
     <div id="show-gig" class="list-group col-6">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
-          <h4 class="col-4" id="show-gig-title">Gig Title</h4>
+          <h4 class="col-4" id="show-gig-title">Hi!</h4>
           <a id="show-gig-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
             View Comments
           </a>
         </div>
-        <p id="show-gig-body">Gig Info</p>
+        <p id="show-gig-body">Select a gig to view it.</p>
       </div>
     </div>
   </div>

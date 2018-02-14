@@ -38,8 +38,13 @@ a {
   overflow: scroll !important;
 }
 
+.new-comment {
+  padding-bottom: 10px !important;
+}
+
 #toggleComments {
   max-height: 600px !important;
+  padding-bottom: 20px !important;
   overflow: scroll !important;
 }
 
