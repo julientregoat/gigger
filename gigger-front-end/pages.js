@@ -148,9 +148,11 @@ let YOURGIGSPAGE = `
 
 let ACCOUNTPAGE = `
 <div id="account-page" class="container-fluid">
+
 <div id="edit-account-btn-div">
    <button class="btn btn-outline-success my-2 my-sm-0" id="edit-account-btn" type="submit">Edit Profile</button>
  </div>
+
   <div id="account-page-div" class="list-group col-10">
     <div id="show-account-content" class="list-group-item">
     <div class="row justify-content-between">

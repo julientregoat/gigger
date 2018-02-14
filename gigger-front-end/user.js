@@ -15,7 +15,7 @@ const User = (function(){
       <div id="welcome-page-div" class="list-group col-10">
         <div id="show-account-content" class="list-group-item">
         <div class="row justify-content-between">
-          <h4 class="col-4" id="account-name">Welcome ${this.username}</h1>
+          <h4 class="col-4" id="account-name">Welcome ${this.username}</h4>
         </div>
       </div>
     </div>

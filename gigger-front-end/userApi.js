@@ -29,6 +29,7 @@ const UserApi = (function() {
           email: email
         })
       }).then(res => res.json())
+      // then(json => console.log(json))
     }
   };
 })();
