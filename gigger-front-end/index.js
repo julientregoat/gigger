@@ -2,7 +2,7 @@ document.getElementById('current-page').innerHTML = STARTPAGE;
 
 let current_user = ''
 
-document.getElementById('login-form').addEventListener('submit', function(event){
+function loginCallback(event){
   event.preventDefault();
   let input = document.getElementById('username-input-login')
   let spanAlert = document.getElementById('alert')
@@ -25,7 +25,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
       startPage.append(current_user.renderFoundUser())
     }
   })
-})
+}
+
+document.getElementById('login-form').addEventListener('submit', loginCallback)
 
 document.getElementById('sign-up-form').addEventListener('submit', function(event){
   event.preventDefault();
@@ -79,24 +81,37 @@ document.getElementById('view-gigs').addEventListener('click', function (){
 })
 
 document.getElementById('your-gigs').addEventListener('click', function (){
-  document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
-  const gigsList = document.getElementById('gigs-list-group')
-  gigsList.innerHTML = ''
-  GigApi.fetchYourGigs().then((gigs) => {
-    gigs.forEach((gig) => {
-      const newGig = new Gig(gig)
-      gigsList.append(newGig.renderPreview())
+  let currentPage = document.getElementById('current-page')
+  if (current_user != ''){
+    currentPage.innerHTML = YOURGIGSPAGE;
+    const gigsList = document.getElementById('gigs-list-group')
+    gigsList.innerHTML = ''
+    GigApi.fetchYourGigs().then((gigs) => {
+      gigs.forEach((gig) => {
+        const newGig = new Gig(gig)
+        gigsList.append(newGig.renderPreview())
+      })
     })
-  })
+  } else {
+    alert("You can't do that while not logged in.")
+    document.getElementById('current-page').innerHTML = STARTPAGE;
+    document.getElementById('login-form').addEventListener('submit', loginCallback)
+  }
 })
 
 
 document.getElementById('account').addEventListener('click', function (){
-  document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
-  const userInfoDiv = document.getElementById('user-info')
-  console.log("current", current_user);
-  UserApi.fetchUser(current_user.id).then((userJSON) => {
-    const newUser = new User(userJSON)
-    userInfoDiv.append(newUser.renderAccount())
-  })
+  if (current_user != ''){
+    document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
+    const userInfoDiv = document.getElementById('user-info')
+    console.log("current", current_user);
+    UserApi.fetchUser(current_user.id).then((userJSON) => {
+      const newUser = new User(userJSON)
+      userInfoDiv.append(newUser.renderAccount())
+    })
+  } else {
+    alert('Log in to access account information.')
+    document.getElementById('current-page').innerHTML = STARTPAGE;
+    document.getElementById('login-form').addEventListener('submit', loginCallback)
+  }
 })

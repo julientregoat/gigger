@@ -89,10 +89,8 @@ let VIEWGIGSPAGE = `
 
 let YOURGIGSPAGE =
 `<div id="all-gigs-page" class="container-fluid">
-  <form class="form-inline" id="gigs-search">
-    <input class="form-control mr-sm-2" type="search" placeholder="Enter keywords" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Gigs</button>
-  </form>
+
+  <button class="btn btn-outline-success my-2 my-sm-0" id="create-gig-button" type="submit">Create Gig</button>
 
   <div class="collapse" id="toggleComments">
 
