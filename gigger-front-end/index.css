@@ -56,3 +56,24 @@ a {
 #show-gig-comments {
   height: 40px !important;
 }
+
+#account-name {
+  text-align: right;
+  float: right;
+}
+
+
+nav a {
+  padding-right: .5rem !important;
+  padding-left: .5rem !important;
+  /* padding-left: 40px !important;
+  padding-right: 40px !important; */
+  /* margin: 0; */
+}
+
+/* li #nav-item {
+  list-style:none;
+  margin:10px;
+  margin: 0;
+  padding: 0;
+} */
