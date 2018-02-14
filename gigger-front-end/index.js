@@ -78,10 +78,18 @@ document.getElementById('view-gigs').addEventListener('click', function (){
   })
 })
 
-///// have to make a render for your gigs
 document.getElementById('your-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = YOURGIGSPAGE;
+  const gigsList = document.getElementById('gigs-list-group')
+  gigsList.innerHTML = ''
+  GigApi.fetchYourGigs().then((gigs) => {
+    gigs.forEach((gig) => {
+      const newGig = new Gig(gig)
+      gigsList.append(newGig.renderPreview())
+    })
+  })
 })
+
 
 document.getElementById('account').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = ACCOUNTPAGE;

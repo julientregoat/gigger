@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   post '/check_user' => 'users#check_user'
+  get '/gigs/user/:id' => 'gigs#by_user'
   # , as: :check_username
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -8,5 +8,9 @@ const GigApi = (function() {
       return fetch("http://localhost:3000/gigs")
       .then(res => res.json())
     }
+
+    static fetchYourGigs() {
+      return fetch(`http://localhost:3000/gigs/user/${current_user.id}`).then(res => res.json())
+    }
   };
 })();

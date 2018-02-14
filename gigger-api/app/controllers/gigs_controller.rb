@@ -27,6 +27,11 @@ class GigsController < ApplicationController
     render json: @gig, status: 200
   end
 
+  def by_user
+    @gigs = Gig.all.select{|gig| gig.poster.id == params[:id].to_i}
+    render json: @gigs, status: 200
+  end
+
   private
   def gig_params
     params.permit(:title, :body, :poster_id, :tag_id)

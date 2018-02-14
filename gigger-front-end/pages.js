@@ -87,56 +87,54 @@ let VIEWGIGSPAGE = `
 
 ///////////////////////////////////////////////////////////////////////////////
 
-let YOURGIGSPAGE = `
-<div id="your-gigs-page" class="container-fluid">
- <div id="add-gig-btn-div">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="add-gig-btn" type="submit">Add A Gig</button>
-  </div>
+let YOURGIGSPAGE =
+`<div id="all-gigs-page" class="container-fluid">
+  <form class="form-inline" id="gigs-search">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter keywords" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Gigs</button>
+  </form>
 
   <div class="collapse" id="toggleComments">
-    <div id="comments-top">
-      Comments for Gig Title
-      <a class="close" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
-      <span aria-hidden="true">&times;</span>
-      </a>
-    </div>
 
-    <div id="comments-list-group" class="list-group">
-
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Comment</h5>
-          <small>Date Posted</small>
+    <div class="new-comment row justify-content-center">
+      <div class="input-group input-group-sm col-6">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Enter a new comment:</span>
         </div>
-        <p class="mb-1">Commenter</p>
-      </a>
-
+        <textarea id="new-comment-input" class="form-control" aria-label="Enter a new comment:"></textarea>
+        <div class="input-group-append">
+          <button id="submit-new-comment" class="btn btn-outline-secondary" type="button" onclick="Gig.postComment(this)">Submit</button>
+        </div>
+      </div>
     </div>
+
+      <div id="comments-top">
+        Comments
+        <a class="close" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+
+      <div id="comments-list-group" class="list-group">
+      </div>
   </div>
 
   <div class="row">
     <div id="gigs-list" class="col-6">
       <div id="gigs-list-group" class="list-group">
 
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Gig Name</h5>
-            <small>Date Posted</small>
-          </div>
-          <p class="mb-1">Content preview</p>
-          <span class="badge badge-success">Tag</span>
-        </a>
       </div>
     </div>
+
     <div id="show-gig" class="list-group col-6">
       <div id="show-gig-content" class="list-group-item">
         <div class="row justify-content-between">
-          <h1 class="col-4">Gig Title</h1>
-          <a id="view-comments" class="btn btn-danger col-3" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <h4 class="col-4" id="show-gig-title">Hi!</h4>
+          <a id="show-gig-comments" class="btn btn-danger col-3 invisible" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
             View Comments
           </a>
         </div>
-        <p>Gig Info</p>
+        <p id="show-gig-body">Select a gig to view it.</p>
       </div>
     </div>
   </div>
