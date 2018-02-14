@@ -14,6 +14,12 @@ class CommentsController < ApplicationController
     render json: {message: 'Comment deleted'}, status: 200
   end
 
+  def update
+    comment = Comment.find(params[:id])
+    comment.update(content: params[:content])
+    render json: comment, status: 200
+  end
+
   private
 
   def comment_params

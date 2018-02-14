@@ -10,8 +10,31 @@ const Gig = (function() {
       this.comments = comments
     }
 
+    static submitEdit(commentId){
+      let updatedContent = document.getElementById('edit-comment-input').value
+      fetch(`http://localhost:3000/comments/${commentId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({content: updatedContent})
+      }).then(res => res.json()).then(comment => {
+        document.getElementById(`comment-${commentId}`).innerHTML = `<div class="d-flex w-100 justify-content-between">
+          <h5 id="comment-content-${comment.id}" class="mb-1">${comment.content}</h5>
+          <small>${comment.created_at.slice(0,10)}</small>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1">${comment.user.username}</p>
+          ${comment.user.username === current_user.username ? `<div><button type="button" class="btn btn-warning btn-sm" data-comment_id="${comment.id}" onclick="Gig.editComment(this)">Edit</button><button type="button" class="btn btn-danger btn-sm" data-comment_id="${comment.id}" onclick="Gig.deleteComment(this)">Delete</button></div>` : ""}
+        </div>`
+      })
+    }
+
     static editComment(commentElement){
-      console.log(commentElement)
+      let commentID = commentElement.dataset.comment_id
+      let previousContent = document.getElementById(`comment-content-${commentID}`).textContent
+      document.getElementById(`comment-${commentID}`).innerHTML =
+      `<textarea id="edit-comment-input" class="form-control">${previousContent}</textarea><button id="submit-comment-edit" class="btn btn-outline-secondary" type="button" onclick="Gig.submitEdit(${commentID})">Submit Edit</button>`
     }
 
     static deleteComment(commentElement){
@@ -26,7 +49,7 @@ const Gig = (function() {
       let commentHTML =
       `<a href="#" id="comment-${comment.id}"class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">${comment.content}</h5>
+          <h5 id="comment-content-${comment.id}" class="mb-1">${comment.content}</h5>
           <small>${comment.created_at.slice(0,10)}</small>
         </div>
         <div class="d-flex w-100 justify-content-between">
@@ -79,7 +102,7 @@ const Gig = (function() {
       showCommentsButton.className = "btn btn-danger col-3"
     }
 
-    render(){
+    renderPreview(){
       let newGig = document.createElement('a')
       newGig.className = "list-group-item list-group-item-action flex-column align-items-start"
       newGig.href = "#"

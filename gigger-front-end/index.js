@@ -73,7 +73,7 @@ document.getElementById('view-gigs').addEventListener('click', function (){
   GigApi.fetchGigs().then((gigs) => {
     gigs.forEach((gig) => {
       const newGig = new Gig(gig)
-      gigsList.append(newGig.render())
+      gigsList.append(newGig.renderPreview())
     })
   })
 })
