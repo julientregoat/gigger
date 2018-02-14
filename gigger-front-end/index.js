@@ -32,6 +32,7 @@ document.getElementById('sign-up-form').addEventListener('submit', function(even
   let usernameField = document.getElementById('username-input-signup')
   let emailField = document.getElementById('email-input')
   let spanAlert = document.getElementById('alert')
+  let startPage = document.getElementById('start-page')
   // make sure username is available
   // make sure email is valid
   // raise these specific errors if they are not
@@ -52,7 +53,11 @@ document.getElementById('sign-up-form').addEventListener('submit', function(even
   })
   // alert.innerHTMl
     }else{
-      console.log("byeee")
+      current_user = new User(userJSON)
+      let namePlaceholder = document.getElementById('currentuser-name')
+      namePlaceholder.innerHTML = current_user.username
+      startPage.innerHTML = ''
+      startPage.append(current_user.renderFoundUser())
   }})
 
 })
