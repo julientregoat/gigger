@@ -116,7 +116,9 @@ document.getElementById('account').addEventListener('click', function (){
   if (current_user != ''){
     document.getElementById('current-page').innerHTML = ACCOUNTPAGE;
     const userInfoDiv = document.getElementById('user-info')
-    console.log("current", current_user);
+    // console.log("current", current_user);
+    let editBTN = document.getElementById('edit-account-btn')
+    editBTN.addEventListener('click', current_user.editAccountPage.bind(current_user))
     UserApi.fetchUser(current_user.id).then((userJSON) => {
       const newUser = new User(userJSON)
       userInfoDiv.append(newUser.renderAccount())
@@ -127,4 +129,6 @@ document.getElementById('account').addEventListener('click', function (){
     document.getElementById('login-form').addEventListener('submit', loginCallback)
     document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
   }
+
+
 })

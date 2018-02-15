@@ -31,5 +31,26 @@ const UserApi = (function() {
       }).then(res => res.json())
       // then(json => console.log(json))
     }
+
+    static fetchEditAccount(username, email){
+      // console.log("in the edit fetch", this)
+      // console.log(current_user);
+      // this is the userAPI class
+      return fetch(`http://localhost:3000/users/${current_user.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email
+        })
+      }).then(res => res.json())
+    }
+
+    static fetchDeleteAccount(){
+      event.preventDefault()
+
+    }
   };
 })();
