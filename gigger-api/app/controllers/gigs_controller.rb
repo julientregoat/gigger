@@ -3,8 +3,14 @@ class GigsController < ApplicationController
   before_action :set_gig, only: [:show,:update,:destroy]
 
   def index
-    gigs = Gig.all
-    render json: gigs, status: 200
+    if params[:search]
+      query = params[:search].downcase
+      gigs = Gig.where('lower(title) LIKE ? or lower(body) LIKE ?', "%#{query}%", "%#{query}%")
+      render json: gigs, status: 200
+    else
+      gigs = Gig.all
+      render json: gigs, status: 200
+    end
   end
 
   def create

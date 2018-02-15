@@ -77,6 +77,18 @@ document.getElementById('view-gigs').addEventListener('click', function (){
       gigsList.prepend(newGig.renderPreview())
     })
   })
+  document.getElementById('gigs-search').addEventListener('submit', function(e){
+    e.preventDefault()
+    let query = document.getElementById('gigs-search-input').value
+    fetch(`http://localhost:3000/gigs?search=${query}`)
+    .then(res => res.json()).then(gigs => {
+      document.getElementById('gigs-list-group').innerHTML = ''
+      gigs.forEach((gig) => {
+        const newGig = new Gig(gig)
+        gigsList.prepend(newGig.renderPreview())
+      })
+    })
+  })
 })
 
 document.getElementById('your-gigs').addEventListener('click', function (){
