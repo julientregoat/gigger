@@ -70,13 +70,16 @@ document.getElementById('sign-up-form').addEventListener('submit', signUpCallbac
 document.getElementById('view-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;
   const gigsList = document.getElementById('gigs-list-group')
+
   gigsList.innerHTML = ''
   GigApi.fetchGigs().then((gigs) => {
     gigs.forEach((gig) => {
+      console.log(gig)
       const newGig = new Gig(gig)
       gigsList.prepend(newGig.renderPreview())
     })
   })
+
   document.getElementById('gigs-search').addEventListener('submit', function(e){
     e.preventDefault()
     let query = document.getElementById('gigs-search-input').value

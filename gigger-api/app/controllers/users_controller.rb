@@ -32,6 +32,7 @@ def update
 end
 
 def destroy
+  @user.gigs.each{|gig| gig.destroy}
   userId = @user.id
   @user.destroy
   render json: {message:"Zap! user deleted", userId:userId}
