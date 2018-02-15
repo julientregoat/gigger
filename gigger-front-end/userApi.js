@@ -49,7 +49,15 @@ const UserApi = (function() {
     }
 
     static fetchDeleteAccount(){
-      event.preventDefault()
+      console.log("in the fetch delete account");
+      return fetch(`http://localhost:3000/users/${current_user.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(json => console.log(json))
 
     }
   };

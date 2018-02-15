@@ -54,7 +54,7 @@ const User = (function() {
       let editBTN = document.getElementById('edit-btn')
       let deleteBTN = document.getElementById('delete-btn')
       editBTN.addEventListener('click', current_user.editUser.bind(current_user))
-
+      deleteBTN.addEventListener('click', current_user.deleteAccount.bind(current_user))
       return container
     }
 
@@ -64,7 +64,23 @@ const User = (function() {
       let username = document.getElementById('username-input').value
       let email = document.getElementById('email-input').value
       UserApi.fetchEditAccount(username, email)
+      const userInfoDiv = document.getElementById('user-info')
+      userInfoDiv.innerHTML = ""
+      userInfoDiv.append(this.renderAccount())
+    }
 
+    deleteAccount(event){
+      event.preventDefault()
+        if (confirm("Are you sure you want to delete your account?")) {
+          UserApi.fetchDeleteAccount()
+          let namePlaceholder = document.getElementById('currentuser-name')
+          namePlaceholder.innerHTML = ''
+          document.getElementById('current-page').innerHTML = STARTPAGE;
+      } else {
+          userInfoDiv = document.getElementById('user-info')
+          userInfoDiv.innerHTML = ""
+          userInfoDiv.append(this.renderAccount())
+      }
     }
 
   };
