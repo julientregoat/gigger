@@ -52,6 +52,9 @@ const Gig = (function() {
         editButton.dataset.gig_id = json.id
         deleteButton.dataset.gig_id = json.id
 
+        document.getElementById('button-group').className = "btn-group"
+
+
         const gigsList = document.getElementById('gigs-list-group')
         gigsList.innerHTML = ''
         GigApi.fetchYourGigs().then((gigs) => {
@@ -60,6 +63,7 @@ const Gig = (function() {
             gigsList.prepend(newGig.renderPreview())
           })
         })
+        button.remove()
       })
     }
 
@@ -70,6 +74,8 @@ const Gig = (function() {
       const gigDiv = document.getElementById('show-gig-content')
       const title = gigTitleEl.textContent
       const body = gigBodyEl.textContent
+
+      document.getElementById('button-group').className = "btn-group invisible"
 
       gigTitleEl.innerHTML = `<textarea id="gig-title-input" class="form-control" aria-label="Enter a gig title:">${title}</textarea>`
       gigBodyEl.innerHTML = `<textarea id="gig-body-input" class="form-control" aria-label="Enter your gig content:" rows="10" cols="50">${body}</textarea>`
