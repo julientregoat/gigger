@@ -25,6 +25,66 @@ const Gig = (function() {
       })
     }
 
+    static updateGig(button){
+      const gigID = button.dataset.gig_id
+      const newGigTitle = document.getElementById('gig-title-input').value
+      const newGigBody = document.getElementById('gig-body-input').value
+
+      fetch(`http://localhost:3000/gigs/${gigID}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({gig: {title: newGigTitle, body: newGigBody}})
+      }).then(res => res.json()).then(json => {
+        const gigID = json.id
+        const gigTitleEl = document.getElementById('show-gig-title')
+        const gigBodyEl = document.getElementById('show-gig-body')
+        const gigDiv = document.getElementById('show-gig-content')
+        const newCommentButton = document.getElementById('submit-new-comment')
+        const editButton = document.getElementById('edit-gig-button')
+        const deleteButton = document.getElementById('delete-gig-button')
+
+        gigTitleEl.innerHTML = json.title
+        gigBodyEl.innerHTML = json.body
+
+        newCommentButton.dataset.gig_id = json.id
+        editButton.dataset.gig_id = json.id
+        deleteButton.dataset.gig_id = json.id
+      })
+    }
+
+    static editGig(gig){
+      const gigID = gig.dataset.gig_id
+      const gigTitleEl = document.getElementById('show-gig-title')
+      const gigBodyEl = document.getElementById('show-gig-body')
+      const gigDiv = document.getElementById('show-gig-content')
+      const title = gigTitleEl.textContent
+      const body = gigBodyEl.textContent
+
+      gigTitleEl.innerHTML = `<textarea id="gig-title-input" class="form-control" aria-label="Enter a gig title:">${title}</textarea>`
+      gigBodyEl.innerHTML = `<textarea id="gig-body-input" class="form-control" aria-label="Enter your gig content:" rows="10" cols="50">${body}</textarea>`
+
+      const submitButton = document.createElement('div')
+      submitButton.innerHTML = `<button id="submit-new-comment" data-gig_id="${gigID}"class="btn btn-outline-secondary" type="button" onclick="Gig.updateGig(this)">Edit</button>`
+      gigDiv.append(submitButton)
+    }
+
+    static deleteGig(gig){
+      const gigID = gig.dataset.gig_id
+      fetch(`http://localhost:3000/gigs/${gigID}`, {method: 'DELETE'})
+      .then(res => res.json()).then(json => {
+        document.getElementById('button-group').className = "btn-group invisible"
+        document.getElementById('show-gig-title').innerHTML = ''
+        document.getElementById('show-gig-body').innerHTML = ''
+        document.getElementById('comments-list-group').innerHTML = ''
+        document.getElementById('submit-new-comment').dataset.gig_id = ''
+        document.getElementById('edit-gig-button').dataset.gig_id = ''
+        document.getElementById('delete-gig-button').dataset.gig_id = ''
+        document.getElementById(`gig-${gigID}`).remove()
+      })
+    }
+
     static submitEdit(commentId){
       let updatedContent = document.getElementById('edit-comment-input').value
       fetch(`http://localhost:3000/comments/${commentId}`, {
@@ -109,18 +169,25 @@ const Gig = (function() {
       const buttonGroup= document.getElementById('button-group')
       const commentsList = document.getElementById('comments-list-group')
       const newCommentButton = document.getElementById('submit-new-comment')
+      const editButton = document.getElementById('edit-gig-button')
+      const deleteButton = document.getElementById('delete-gig-button')
+
+      buttonGroup.className = "btn-group"
 
       showTitle.innerHTML = this.title
       showBody.innerHTML = this.body
       commentsList.innerHTML = this.renderComments()
+
       newCommentButton.dataset.gig_id = this.id
-      buttonGroup.className = "btn-group"
+      editButton.dataset.gig_id = this.id
+      deleteButton.dataset.gig_id = this.id
     }
 
     renderPreview(){
       let newGig = document.createElement('a')
       newGig.className = "list-group-item list-group-item-action flex-column align-items-start"
       newGig.href = "#"
+      newGig.id = `gig-${this.id}`
       newGig.innerHTML =
       `<div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${this.title}</h5>

@@ -139,8 +139,8 @@ let YOURGIGSPAGE =
             <a id="show-gig-comments" class="btn btn-info" data-toggle="collapse" href="#toggleComments" role="button" aria-expanded="false" aria-controls="collapseExample">
               Comments
             </a>
-            <button type="button" class="btn btn-warning">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button id="edit-gig-button" type="button" class="btn btn-warning" onclick="Gig.editGig(this)">Edit</button>
+            <button id="delete-gig-button" type="button" class="btn btn-danger" onclick="Gig.deleteGig(this)">Delete</button>
           </div>
         </div>
         <p id="show-gig-body">Select a gig to view it.</p>

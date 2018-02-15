@@ -8,7 +8,6 @@ class GigsController < ApplicationController
   end
 
   def create
-    byebug
     gig = Gig.create(gig_params)
     render json: gig, status: 201
   end
@@ -19,9 +18,8 @@ class GigsController < ApplicationController
   end
 
   def destroy
-    gigId = @gig.id
     @gig.destroy
-    render json: {message:"Zap! Gig deleted", gigId:gigId}
+    render json: {message:"Zap! Gig deleted"}, status: 200
   end
 
   def show

@@ -42,6 +42,10 @@ a {
   overflow: scroll !important;
 }
 
+#show-gig-body {
+  padding-top: 30px !important;
+}
+
 .new-comment {
   padding-bottom: 10px !important;
 }
@@ -57,7 +61,7 @@ a {
   padding-bottom: 10px !important;
 }
 
-#show-gig-comments {
+#show-gig-comments, #edit-gig-button, #delete-gig-button {
   height: 40px !important;
 }
 
