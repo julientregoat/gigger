@@ -20,7 +20,11 @@ function loginCallback(event){
     } else {
       current_user = new User(userJSON)
       let namePlaceholder = document.getElementById('currentuser-name')
+      let userInfoSection = document.getElementById('user-info-section')
+
       namePlaceholder.innerHTML = current_user.username
+      userInfoSection.className = 'justify-content-end'
+
       startPage.innerHTML = ''
       startPage.append(current_user.renderFoundUser())
     }
@@ -66,6 +70,16 @@ document.getElementById('sign-up-form').addEventListener('submit', signUpCallbac
 // REMOVED DOM CONTENT LOADED FOR NOW B/C WE DON'T KNOW IF WE NEED IT
 // document.addEventListener('DOMContentloaded', function(){
 // })
+
+function logout(){
+  current_user = ''
+  document.getElementById('user-info-section').className = "justify-content-end invisible"
+  alert('logged out')
+
+  document.getElementById('current-page').innerHTML = STARTPAGE;
+  document.getElementById('login-form').addEventListener('submit', loginCallback)
+  document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
+}
 
 document.getElementById('view-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;

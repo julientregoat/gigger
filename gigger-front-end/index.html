@@ -6,22 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="iAe=edge">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>gigger - get some cash</title>
+  <title>gigs - get some cash</title>
 </head>
 <body>
 
   <nav class="navbar navbar-light bg-light">
     <div class="justify-content-start">
       <img src="./logo.png" width="50" height="50" alt="">
-      <li class="navbar-brand">gigger</li>
+      <li class="navbar-brand">gigs</li>
 
       <a class="navbar-link" href="#" id="view-gigs">view gigs</a>
       <a class="navbar-link" href="#" id="your-gigs">your gigs</a>
       <a class="navbar-link" href="#" id="account">account</a>
     </div>
 
-    <div class="justify-content-end">
+    <div id="user-info-section" class="justify-content-end invisible">
         <a id="currentuser-name" class="navbar-link"></a>
+        <button id="logout-button" class="btn btn-light btn-sm" onclick="logout()">logout</button>
     </div>
 
   </nav>

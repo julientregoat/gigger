@@ -62,7 +62,6 @@ const User = (function() {
       event.preventDefault()
       // console.log("in the edit user account", this);
       let username = document.getElementById('username-input').value
-      console.log(username);
       let email = document.getElementById('email-input').value
       const userInfoDiv = document.getElementById('user-info')
       userInfoDiv.innerHTML = ""
