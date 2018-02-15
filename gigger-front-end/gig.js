@@ -51,6 +51,15 @@ const Gig = (function() {
         newCommentButton.dataset.gig_id = json.id
         editButton.dataset.gig_id = json.id
         deleteButton.dataset.gig_id = json.id
+
+        const gigsList = document.getElementById('gigs-list-group')
+        gigsList.innerHTML = ''
+        GigApi.fetchYourGigs().then((gigs) => {
+          gigs.forEach((gig) => {
+            const newGig = new Gig(gig)
+            gigsList.prepend(newGig.renderPreview())
+          })
+        })
       })
     }
 
