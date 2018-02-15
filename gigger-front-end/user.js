@@ -76,6 +76,8 @@ const User = (function() {
           let namePlaceholder = document.getElementById('currentuser-name')
           namePlaceholder.innerHTML = ''
           document.getElementById('current-page').innerHTML = STARTPAGE;
+          document.getElementById('login-form').addEventListener('submit', loginCallback)
+          document.getElementById('sign-up-form').addEventListener('submit', signUpCallback)
       } else {
           userInfoDiv = document.getElementById('user-info')
           userInfoDiv.innerHTML = ""
