@@ -60,13 +60,20 @@ const User = (function() {
 
     editUser(event){
       event.preventDefault()
-      console.log("in the edit user account", this);
+      // console.log("in the edit user account", this);
       let username = document.getElementById('username-input').value
+      console.log(username);
       let email = document.getElementById('email-input').value
-      UserApi.fetchEditAccount(username, email)
       const userInfoDiv = document.getElementById('user-info')
       userInfoDiv.innerHTML = ""
-      userInfoDiv.append(this.renderAccount())
+      // userInfoDiv.append(this.renderAccount())
+      UserApi.fetchEditAccount(username, email)
+      .then(userJSON => {
+        let newUserInfo = new User(userJSON)
+        let namePlaceholder = document.getElementById('currentuser-name')
+        namePlaceholder.innerHTML = username
+        userInfoDiv.append(newUserInfo.renderAccount())
+      })
     }
 
     deleteAccount(event){
