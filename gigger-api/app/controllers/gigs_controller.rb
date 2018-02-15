@@ -5,7 +5,7 @@ class GigsController < ApplicationController
   def index
     if params[:search]
       query = params[:search].downcase
-      gigs = Gig.where('lower(title) LIKE ?', "%#{query}%")
+      gigs = Gig.where('lower(title) LIKE ? or lower(body) LIKE ?', "%#{query}%", "%#{query}%")
       render json: gigs, status: 200
     else
       gigs = Gig.all
