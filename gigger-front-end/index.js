@@ -83,12 +83,13 @@ function logout(){
 
 document.getElementById('view-gigs').addEventListener('click', function (){
   document.getElementById('current-page').innerHTML = VIEWGIGSPAGE;
+  let current_page = 0
+  document.getElementById('current-page-count').textContent = `Current Page: ${current_page + 1}`
   const gigsList = document.getElementById('gigs-list-group')
 
   gigsList.innerHTML = ''
   GigApi.fetchGigs().then((gigs) => {
     gigs.forEach((gig) => {
-      console.log(gig)
       const newGig = new Gig(gig)
       gigsList.prepend(newGig.renderPreview())
     })
@@ -100,6 +101,33 @@ document.getElementById('view-gigs').addEventListener('click', function (){
     fetch(`http://localhost:3000/gigs?search=${query}`)
     .then(res => res.json()).then(gigs => {
       document.getElementById('gigs-list-group').innerHTML = ''
+      gigs.forEach((gig) => {
+        const newGig = new Gig(gig)
+        gigsList.prepend(newGig.renderPreview())
+      })
+    })
+  })
+
+  document.getElementById('next-page-button').addEventListener('click', function(e){
+    current_page += 1
+    document.getElementById('current-page-count').textContent = `Current Page: ${current_page + 1}`
+    GigApi.fetchGigsPage(current_page).then(gigs => {
+      gigs.forEach((gig) => {
+        const newGig = new Gig(gig)
+        gigsList.prepend(newGig.renderPreview())
+      })
+    })
+  })
+
+  document.getElementById('previous-page-button').addEventListener('click', function(e){
+    if (current_page > 0){
+      current_page -= 1
+    } else {
+      current_page = 0
+    }
+    
+    document.getElementById('current-page-count').textContent = `Current Page: ${current_page + 1}`
+    GigApi.fetchGigsPage(current_page).then(gigs => {
       gigs.forEach((gig) => {
         const newGig = new Gig(gig)
         gigsList.prepend(newGig.renderPreview())

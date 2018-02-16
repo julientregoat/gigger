@@ -9,7 +9,7 @@ const GigApi = (function() {
       .then(res => res.json())
     }
 
-    static fetchGigsByPage(page) {
+    static fetchGigsPage(page) {
       return fetch(`http://localhost:3000/gigs?page=${page}`)
       .then(res => res.json())
     }

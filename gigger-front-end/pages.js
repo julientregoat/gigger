@@ -39,6 +39,12 @@ let VIEWGIGSPAGE = `
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Gigs</button>
   </form>
 
+  <ul class="pagination">
+    <li class="page-item" id="previous-page-button"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item" id="next-page-button"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item page-link" id="current-page-count"></li>
+  </ul>
+
   <div class="collapse" id="toggleComments">
 
     <div class="new-comment row justify-content-center">
@@ -66,10 +72,6 @@ let VIEWGIGSPAGE = `
 
   <div class="row">
     <div id="gigs-list" class="col-6">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
       <div id="gigs-list-group" class="list-group">
       </div>
     </div>

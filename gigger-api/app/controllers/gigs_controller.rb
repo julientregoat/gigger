@@ -7,13 +7,13 @@ class GigsController < ApplicationController
       query = params[:search].downcase
       gigs = Gig.where('lower(title) LIKE ? or lower(body) LIKE ?', "%#{query}%", "%#{query}%")
       render json: gigs, status: 200
-    elsif params[:page]
-      byebug
-      start_page = params[:page].to_i
-      end_page = start_page + 100
-      gigs = Gig.all[start_page..end_page]
+    elsif params[:page].to_i > 0
+      start_count = params[:page].to_i * 100
+      end_count = start_count + 99
+      gigs = Gig.all[start_count..end_count]
+      render json: gigs, status: 200
     else
-      gigs = Gig.all[0..100]
+      gigs = Gig.all[0..99]
       render json: gigs, status: 200
     end
   end
