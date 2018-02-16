@@ -83,6 +83,7 @@ let VIEWGIGSPAGE = `
           </div>
 
         </div>
+        <div id="gig-category"></div>
         <p id="show-gig-body">Select a gig to view it.</p>
       </div>
     </div>
@@ -143,6 +144,7 @@ let YOURGIGSPAGE =
             <button id="delete-gig-button" type="button" class="btn btn-danger" onclick="Gig.deleteGig(this)">Delete</button>
           </div>
         </div>
+        <div id="gig-category"></div>
         <p id="show-gig-body">Select a gig to view it.</p>
       </div>
     </div>

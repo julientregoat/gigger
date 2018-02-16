@@ -8,17 +8,16 @@ const User = (function() {
 
     renderFoundUser() {
       let renderUser = document.createElement("div");
-      renderUser.innerHTML = `
-    <div id="welcome-page" class="container-fluid">
-      <div id="welcome-page-div" class="list-group col-10">
-        <div id="show-account-content" class="alert alert-success">
-        <div class="row justify-content-between">
-          <h4 class="col-4" id="account-name">Welcome ${this.username}</h4>
-        </div>
-      </div>
-    </div>
-    </div>
-      `;
+      renderUser.innerHTML =
+        `<div id="welcome-page" class="container-fluid">
+          <div id="welcome-page-div" class="list-group col-10">
+            <div id="show-account-content" class="alert alert-success">
+              <div class="row justify-content-between">
+                <h4 class="col-4" id="account-name">Welcome ${this.username}</h4>
+              </div>
+            </div>
+          </div>
+        </div>`;
       return renderUser;
     }
 

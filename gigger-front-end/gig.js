@@ -29,24 +29,28 @@ const Gig = (function() {
       const gigID = button.dataset.gig_id
       const newGigTitle = document.getElementById('gig-title-input').value
       const newGigBody = document.getElementById('gig-body-input').value
+      const newGigTagID = document.getElementById('gig-tag-select').value
+      console.log(newGigTagID)
 
       fetch(`http://localhost:3000/gigs/${gigID}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({gig: {title: newGigTitle, body: newGigBody}})
+        body: JSON.stringify({gig: {title: newGigTitle, body: newGigBody, tag_id: newGigTagID}})
       }).then(res => res.json()).then(json => {
         const gigID = json.id
         const gigTitleEl = document.getElementById('show-gig-title')
         const gigBodyEl = document.getElementById('show-gig-body')
         const gigDiv = document.getElementById('show-gig-content')
+        const tagDiv = document.getElementById('gig-category')
         const newCommentButton = document.getElementById('submit-new-comment')
         const editButton = document.getElementById('edit-gig-button')
         const deleteButton = document.getElementById('delete-gig-button')
 
         gigTitleEl.innerHTML = json.title
         gigBodyEl.innerHTML = json.body
+        tagDiv.innerHTML = Tag.renderBadge(json.tag.name)
 
         newCommentButton.dataset.gig_id = json.id
         editButton.dataset.gig_id = json.id
@@ -72,6 +76,7 @@ const Gig = (function() {
       const gigTitleEl = document.getElementById('show-gig-title')
       const gigBodyEl = document.getElementById('show-gig-body')
       const gigDiv = document.getElementById('show-gig-content')
+      const tagDiv = document.getElementById('gig-category')
       const title = gigTitleEl.textContent
       const body = gigBodyEl.textContent
 
@@ -79,6 +84,17 @@ const Gig = (function() {
 
       gigTitleEl.innerHTML = `<textarea id="gig-title-input" class="form-control" aria-label="Enter a gig title:">${title}</textarea>`
       gigBodyEl.innerHTML = `<textarea id="gig-body-input" class="form-control" aria-label="Enter your gig content:" rows="10" cols="50">${body}</textarea>`
+
+      const selectCollection = document.createElement('select')
+      selectCollection.id = 'gig-tag-select'
+
+      tagAPI.fetchTags().then(tags => {
+        tags.forEach(tag => {
+          selectCollection.innerHTML += `<option value='${tag.id}'>${tag.name}</option>'`
+        })
+        tagDiv.innerHTML = ''
+        tagDiv.append(selectCollection)
+      })
 
       const submitButton = document.createElement('div')
       submitButton.innerHTML = `<button id="submit-new-comment" data-gig_id="${gigID}"class="btn btn-outline-secondary" type="button" onclick="Gig.updateGig(this)">Edit</button>`
@@ -183,6 +199,7 @@ const Gig = (function() {
       const showBody = document.getElementById('show-gig-body')
       const buttonGroup= document.getElementById('button-group')
       const commentsList = document.getElementById('comments-list-group')
+      const tagDiv = document.getElementById('gig-category')
       const newCommentButton = document.getElementById('submit-new-comment')
       const editButton = document.getElementById('edit-gig-button')
       const deleteButton = document.getElementById('delete-gig-button')
@@ -192,6 +209,8 @@ const Gig = (function() {
       showTitle.innerHTML = this.title
       showBody.innerHTML = this.body
       commentsList.innerHTML = this.renderComments()
+      tagDiv.innerHTML = Tag.renderBadge(this.tag)
+
 
       newCommentButton.dataset.gig_id = this.id
       editButton.dataset.gig_id = this.id
