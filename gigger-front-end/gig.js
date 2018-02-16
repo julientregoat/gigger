@@ -22,6 +22,9 @@ const Gig = (function() {
       }).then(res => res.json()).then(gig => {
         const newGig = new Gig(gig)
         gigsList.prepend(newGig.renderPreview())
+        const dummyButton = document.createElement('button')
+        dummyButton.dataset.gig_id = newGig.id
+        Gig.editGig(dummyButton)
       })
     }
 
@@ -30,7 +33,6 @@ const Gig = (function() {
       const newGigTitle = document.getElementById('gig-title-input').value
       const newGigBody = document.getElementById('gig-body-input').value
       const newGigTagID = document.getElementById('gig-tag-select').value
-      console.log(newGigTagID)
 
       fetch(`http://localhost:3000/gigs/${gigID}`, {
         method: 'PUT',
@@ -112,6 +114,7 @@ const Gig = (function() {
         document.getElementById('submit-new-comment').dataset.gig_id = ''
         document.getElementById('edit-gig-button').dataset.gig_id = ''
         document.getElementById('delete-gig-button').dataset.gig_id = ''
+        document.getElementById('gig-category').innerHTML = ''
         document.getElementById(`gig-${gigID}`).remove()
       })
     }
