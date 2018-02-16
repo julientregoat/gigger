@@ -66,8 +66,11 @@ let VIEWGIGSPAGE = `
 
   <div class="row">
     <div id="gigs-list" class="col-6">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
       <div id="gigs-list-group" class="list-group">
-
       </div>
     </div>
 
